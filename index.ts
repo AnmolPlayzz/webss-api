@@ -12,6 +12,12 @@ if (keyListRaw) {
     console.log("[⚠] WARNING: No generated API key found.");
 }
 const app: Express = express();
+
+const browser = await puppeteer.launch({
+    timeout: 0,
+    args: ['--no-sandbox'],
+});
+
 function waitFor(time: number): Promise<void>{
     return new Promise((resolve)=>{
         setTimeout(resolve, time);
@@ -48,9 +54,6 @@ app.post("/screenshot", async (request: Request, response: Response) => {
     } = request.body
     console.log(url, wait)
     try {
-        const browser = await puppeteer.launch({
-            args: ['--no-sandbox'],
-          });
         const page = await browser.newPage();
         await page.setViewport({
             width: 1280,
