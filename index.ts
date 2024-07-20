@@ -63,7 +63,6 @@ app.post("/screenshot", async (request: Request, response: Response) => {
         await page.goto(url);
         await waitFor(wait)
         const screenshotBuffer = await page.screenshot()
-        await browser.close();
         response.set('Content-Type', 'image/png');
         response.status(200).send(screenshotBuffer)
     } catch (error) {

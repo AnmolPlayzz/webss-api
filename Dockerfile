@@ -7,6 +7,7 @@ RUN apt-get upgrade
 RUN apt update
 RUN apt upgrade
 RUN apt install -y libasound2t64
+RUN echo "Cloning git repo"
 RUN git clone https://github.com/AnmolPlayzz/webss-api
 RUN cd ./webss-api
 ENV PORT=0
