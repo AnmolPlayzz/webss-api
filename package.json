@@ -1,0 +1,25 @@
+{
+  "name": "webss-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx tsc && node dist/index.js",
+    "generate": "npx tsc && node dist/generate-key.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "@types/puppeteer": "^7.0.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "express": "^4.19.2",
+    "puppeteer": "^22.13.1"
+  }
+}
