@@ -1,7 +1,7 @@
 import express, {Express, NextFunction, Request, Response} from "express";
 import dotenv from "dotenv";
 dotenv.config();
-import puppeteer from "puppeteer";
+import puppeteer, { Browser } from "puppeteer";
 const keyListRaw: string | undefined = process.env.API_KEY
 let keyList: string[];
 const APIBlocking: number = Number(process.env.API_BLOCKING)
@@ -12,11 +12,11 @@ if (keyListRaw) {
     console.log("[⚠] WARNING: No generated API key found.");
 }
 const app: Express = express();
-
-const browser = await puppeteer.launch({
+let browser: Browser;
+puppeteer.launch({
     timeout: 0,
     args: ['--no-sandbox'],
-});
+}).then(data => browser=data)
 
 function waitFor(time: number): Promise<void>{
     return new Promise((resolve)=>{
