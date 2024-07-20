@@ -48,7 +48,9 @@ app.post("/screenshot", async (request: Request, response: Response) => {
     } = request.body
     console.log(url, wait)
     try {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            args: ['--no-sandbox'],
+          });
         const page = await browser.newPage();
         await page.setViewport({
             width: 1280,
