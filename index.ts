@@ -13,6 +13,13 @@ if (keyListRaw) {
 }
 const app: Express = express();
 
+let browser: Browser;
+
+puppeteer.launch({
+    timeout: 0,
+    args: ['--no-sandbox'],
+}).then(data => browser=data)
+
 
 function waitFor(time: number): Promise<void>{
     return new Promise((resolve)=>{
@@ -50,10 +57,7 @@ app.post("/screenshot", async (request: Request, response: Response) => {
     } = request.body
     console.log(url, wait)
     try {
-        const browser = await puppeteer.launch({
-            timeout: 0,
-            args: ['--no-sandbox'],
-        })
+
         const page = await browser.newPage();
         await page.setViewport({
             width: 1280,
