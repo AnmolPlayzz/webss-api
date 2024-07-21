@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npx tsc",
+    "run": "node dist/index.js",
     "start": "npx tsc && node dist/index.js",
     "generate": "npx tsc && node dist/generate-key.js"
   },
