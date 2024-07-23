@@ -174,4 +174,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-Made with TypeScript and 🥰+🎶 by @AnmolPlayzz
+Made with TypeScript, Docker and 🥰+🎶 by @AnmolPlayzz
